@@ -25,7 +25,7 @@
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin></Label>
-            <TextField id="textfield_B" fx:id="textfield_B" promptText="b">
+            <TextField id="textfield_B" fx:id="textfield_B" alignment="TOP_RIGHT" promptText="b">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
@@ -35,7 +35,7 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </Label>
-            <TextField id="textfield_C" fx:id="textfield_C" promptText="c">
+            <TextField id="textfield_C" fx:id="textfield_C" alignment="CENTER_RIGHT" promptText="c">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>

@@ -48,20 +48,29 @@ public class MasodfokController {
         // calculate d
         double d = b * b - 4.0 * a * c;
 
-        // TODO - check count of solution
+        if (d < 0.0) {
+            // no real solution
+            List<String> lines = new ArrayList<>();
+            lines.add("No real solution.");
+            ObservableList<String> linesFX = FXCollections.observableList(lines);
+            listview_Solution.setItems(linesFX);
+        } else {
+            if (d > 0.0) {
+                double x1 = (-b + Math.sqrt(d)) / (2.0 * a);
+                double x2 = (-b - Math.sqrt(d)) / (2.0 * a);
 
-        // solve if had 2 difference solutions
-        double x1 = (-b + Math.sqrt(d)) / (2.0 * a);
-        double x2 = (-b - Math.sqrt(d)) / (2.0 * a);
+                String line1 = "x1 = "+ Math.round(x1 * 100.0) / 100.0;
+                String line2 = "x2 = "+ Math.round(x2 * 100.0) / 100.0;
 
-        String line1 = "x1 = "+ Math.round(x1 * 100.0) / 100.0;
-        String line2 = "x2 = "+ Math.round(x2 * 100.0) / 100.0;
+                List<String> lines = new ArrayList<>();
+                lines.add(line1);
+                lines.add(line2);
+                ObservableList<String> linesFX = FXCollections.observableList(lines);
+                listview_Solution.setItems(linesFX);
+            } else {
+                // TODO - only one real solution
 
-        List<String> lines = new ArrayList<>();
-        lines.add(line1);
-        lines.add(line2);
-        ObservableList<String> linesFX = FXCollections.observableList(lines);
-        listview_Solution.setItems(linesFX);
-
+            }
+        }
     }
 }
