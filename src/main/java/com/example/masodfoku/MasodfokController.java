@@ -1,14 +1,56 @@
 package com.example.masodfoku;
 
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MasodfokController {
     @FXML
-    private Label welcomeText;
+    public TextField textfield_A;
+    @FXML
+    public TextField textfield_B;
+    @FXML
+    public TextField textfield_C;
+    @FXML
+    public Button button_Solve;
+    @FXML
+    public ListView listview_Solution;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    protected void onSolveButtonClick() {
+        // TODO - implement method
+        //System.out.println("onSolveButtonClick start");
+
+        // get a, b, c
+        double a = Double.parseDouble(textfield_A.getText());
+        double b = Double.parseDouble(textfield_B.getText());
+        double c = Double.parseDouble(textfield_C.getText());
+
+        // calculate d
+        double d = b * b - 4.0 * a * c;
+
+        // TODO - check count of solution
+
+        // solve if had 2 difference solutions
+        double x1 = (-b + Math.sqrt(d)) / (2.0 * a);
+        double x2 = (-b - Math.sqrt(d)) / (2.0 * a);
+
+        String line1 = "x1 = "+ x1; // TODO - round
+        String line2 = "x2 = "+ x2;
+
+        List<String> lines = new ArrayList<>();
+        lines.add(line1);
+        lines.add(line2);
+        ObservableList<String> linesFX = FXCollections.observableList(lines);
+        listview_Solution.setItems(linesFX);
+
     }
 }
