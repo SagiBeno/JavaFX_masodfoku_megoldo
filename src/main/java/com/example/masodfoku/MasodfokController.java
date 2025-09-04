@@ -3,7 +3,7 @@ package com.example.masodfoku;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class MasodfokController {
     @FXML
     private Label welcomeText;
 
