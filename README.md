@@ -1,0 +1,1 @@
+# JavaFX_masodfoku_megoldo
